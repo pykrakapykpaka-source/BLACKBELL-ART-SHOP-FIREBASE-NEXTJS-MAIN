@@ -9,7 +9,7 @@ import { v4 as uuid } from "uuid";
 import dynamic from "next/dynamic";
 import "react-quill-new/dist/quill.snow.css";
 import { toast } from "react-toastify";
-import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 const ReactQuill = dynamic(() => import("react-quill-new"));
 
 export const TOOLBAR_OPTIONS = [
@@ -30,6 +30,7 @@ export default function ProductEditor({
   setEditOpen?: any;
   setProducts?: any;
 }) {
+  const router = useRouter();
   const [isLoading, setLoading] = useState(false);
   const [isAdded, setIsAdded] = useState(false);
   const [artworkData, setArtworkData] = useState<any>(data);
@@ -103,7 +104,7 @@ export default function ProductEditor({
         pauseOnHover: true,
       });
       setLoading(false);
-      revalidatePath("/", "layout");
+      router.refresh();
     });
     setIsAdded(true);
   }
@@ -180,7 +181,7 @@ export default function ProductEditor({
         })
       );
       setLoading(false);
-      revalidatePath("/", "layout");
+      router.refresh();
     });
     setEditOpen(false);
   }
