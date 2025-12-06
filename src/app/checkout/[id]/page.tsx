@@ -25,7 +25,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
           Nie znaleziono zamówienia
         </h1>
         <Link
-          href="https://blackbellartstudio.pl/"
+          href="https://blackbellstudio.pl/"
           className="text-white font-bold text-xl flex flex-row items-center relative z-50"
         >
           <FaArrowLeft className="mr-2" />
@@ -37,7 +37,7 @@ export default async function Page(props: { params: Promise<{ id: string }> }) {
   return (
     <div className="p-5 lg:p-7 xl:p-12">
       <Link
-        href="https://blackbellartstudio.pl/"
+        href="https://blackbellstudio.pl/"
         className="text-gray-800 font-bold text-xl flex flex-row items-center relative z-50"
       >
         <FaArrowLeft className="mr-2" />

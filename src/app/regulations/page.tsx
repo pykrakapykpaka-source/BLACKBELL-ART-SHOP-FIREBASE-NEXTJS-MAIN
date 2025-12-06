@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <div className="prose lg:prose-xl py-24 px-5 lg:px-[8vw] xl:px-[12vw] min-w-[90vw]">
       <h1 className="text-3xl text-zinc-700 drop-shadow-lg shadow-black">
-        Regulamin blackbellartstudio.pl
+        Regulamin blackbellstudio.pl
       </h1>
       <h2 className="text-3xl  text-zinc-700 drop-shadow-lg shadow-black">
         1.Postanowienia Ogólne
@@ -16,11 +16,11 @@ export default function Page() {
         </h5>
         <h5>
           1.2. Regulamin reguluje kwestie korzystania ze strony internetowej
-          blackbellartstudio.pl, dostępnej pod adresem
-          https://www.blackbellartstudio.pl/.
+          blackbellstudio.pl, dostępnej pod adresem
+          https://www.blackbellstudio.pl/.
         </h5>
         <h5>
-          1.3. Operatorem strony internetowej blackbellartstudio.pl (zwanej
+          1.3. Operatorem strony internetowej blackbellstudio.pl (zwanej
           dalej &quot;Stroną&quot; lub &quot;Sklepem&quot;) jest firma
           &quot;Usługi Artystyczne BLACKBELL ART Eliza Czerwińska&quot;, wpisana
           do Centralnej Ewidencji i Informacji o Działalności Gospodarczej
@@ -51,9 +51,9 @@ export default function Page() {
         </h2>
         <h4> 2.1. Sklep (Sprzedający):</h4>
         <h5>Usługi Artystyczne BLACKBELL ART Eliza Czerwińska. </h5>
-        <h4>2.2. blackbellartstudio.pl:</h4>
+        <h4>2.2. blackbellstudio.pl:</h4>
         <h5>
-          Serwis internetowy dostępny pod adresem domeny blackbellartstudio.pl,
+          Serwis internetowy dostępny pod adresem domeny blackbellstudio.pl,
           będący własnością Sklepu, służący prezentacji dzieł artystycznych oraz
           realizacji sprzedaży detalicznej.
         </h5>
@@ -61,24 +61,24 @@ export default function Page() {
         <h5>
           Osoba pełnoletnia, posiadająca zdolność do czynności prawnych, będąca
           autorem dzieł, które znajdują się w ofercie sklepu
-          blackbellartstudio.pl.
+          blackbellstudio.pl.
         </h5>
         <h4>2.4. Klient: </h4>
         <h5>
           Osoba pełnoletnia, posiadająca zdolność do czynności prawnych, osoba
           prawna lub jednostka organizacyjna nieposiadająca osobowości prawnej,
           zdolna do nabywania praw i zaciągania zobowiązań, dokonująca
-          rezerwacji lub zakupu Dzieła Artysty na blackbellartstudio.pl.{" "}
+          rezerwacji lub zakupu Dzieła Artysty na blackbellstudio.pl.{" "}
         </h5>
         <h4>2.5. Dzieło:</h4>
         <h5>
           Obiekt zaprojektowany i (lub) wykonany przez Artystę, prezentowany w
-          opisie i fotografii na blackbellartstudio.pl.{" "}
+          opisie i fotografii na blackbellstudio.pl.{" "}
         </h5>
         <h4>2.6. Zamówienie:</h4>
         <h5>
           Składanie zamówienia przez Klienta to proces, w którym Klient korzysta
-          z dostępnego formularza zamówienia na blackbellartstudio.pl. Po
+          z dostępnego formularza zamówienia na blackbellstudio.pl. Po
           złożeniu zamówienia, Sklep podejmuje niezbędne kroki w celu
           weryfikacji dostępności wybranego Dzieła, ustalenia ceny, kosztów
           dostawy i ewentualnej rezerwacji. Po spełnieniu wszystkich warunków,
@@ -87,7 +87,7 @@ export default function Page() {
         </h5>
         <h4> 2.7. Sprzedaż:</h4>
         <h5>
-          Umowy sprzedaży Dzieła wystawionego na blackbellartstudio.pl, w tym
+          Umowy sprzedaży Dzieła wystawionego na blackbellstudio.pl, w tym
           zawarcie umowy na odległość między Klientem a Sklepem, potwierdzone
           uznaniem wpłaty Klienta za Dzieło na rachunku bankowym Sklepu.
         </h5>
@@ -100,7 +100,7 @@ export default function Page() {
 
           <h4>3.1. Charakterystyka Sklepu:</h4>
           <h5>
-            Sklep internetowy &quot;blackbellartstudio.pl&quot; to platforma
+            Sklep internetowy &quot;blackbellstudio.pl&quot; to platforma
             specjalizująca się w sprzedaży dzieł sztuki artystki
             &quot;blackbell.c.e&quot;. Sklep ten umożliwia Klientom nabywanie
             unikatowych dzieł artystycznych poprzez wygodne korzystanie z
@@ -205,16 +205,16 @@ export default function Page() {
         </div>
         <div>
           <div>
-            <h3>4. Prawa i obowiązki Klienta na blackbellartstudio.pl</h3>
+            <h3>4. Prawa i obowiązki Klienta na blackbellstudio.pl</h3>
             <h5>
-              4.1. Przed złożeniem każdego Zamówienia na blackbellartstudio.pl,
+              4.1. Przed złożeniem każdego Zamówienia na blackbellstudio.pl,
               Klient zaleca się zapoznać z prezentacją Dzieła, dokładnie
               czytając opisy i oglądając zdjęcia umieszczone w prezentacji. W
               przypadku jakichkolwiek pytań lub wątpliwości dotyczących Dzieła
               lub zasad jego zakupu, Klient powinien skontaktować się
               bezpośrednio z naszym Sklepem, wysyłając wiadomość e-mail na
               adres: eliza.czer09@gmail.com, podany na stronie
-              blackbellartstudio.pl.
+              blackbellstudio.pl.
             </h5>
             <h5>
               4.2. Klient, składając Zamówienie, zobowiązuje się do prawidłowego
@@ -228,24 +228,24 @@ export default function Page() {
             <h5>
               4.3. Przed złożeniem Zamówienia, Klient jest zobowiązany do
               dokładnego zapoznania się z niniejszym Regulaminem. Korzystanie z
-              blackbellartstudio.pl przez Klienta oznacza, że zaakceptował
+              blackbellstudio.pl przez Klienta oznacza, że zaakceptował
               Regulamin bez zastrzeżeń.
             </h5>
             <h5>
               4.4. Klient powinien pamiętać, że terminy i warunki zakupów,
               zwroty oraz wszelkie kwestie związane z obsługą Zamówień są
-              uregulowane w Regulaminie blackbellartstudio.pl.
+              uregulowane w Regulaminie blackbellstudio.pl.
             </h5>
           </div>
           <div>
             <div>
               <h3>
                 5. Zasady i procedura składania zamówień na
-                blackbellartstudio.pl
+                blackbellstudio.pl
               </h3>
               <h4>5.1. Godziny przyjmowania zamówień</h4>
               <h5>
-                Platforma blackbellartstudio.pl przyjmuje zamówienia przez całą
+                Platforma blackbellstudio.pl przyjmuje zamówienia przez całą
                 dobę, przez wszystkie dni w roku. Zamówienia złożone w niedziele
                 i święta będą rozpatrywane w kolejności ich złożenia w pierwszym
                 dniu roboczym po dniu złożenia zamówienia.
@@ -254,7 +254,7 @@ export default function Page() {
               <h4>5.2. Rzeczywisty wygląd dzieł sztuki</h4>
               <h5>
                 Rzeczywisty wygląd dzieł sztuki prezentowanych na
-                blackbellartstudio.pl może różnić się od ich reprodukcji
+                blackbellstudio.pl może różnić się od ich reprodukcji
                 fotograficznych ze względu na specyfikę przekazu
                 teleinformatycznego. Klient zobowiązuje się zgłaszać wszelkie
                 wątpliwości dotyczące wyglądu dzieła przed potwierdzeniem oferty
@@ -275,7 +275,7 @@ export default function Page() {
                   <h5>Krok 1 - Składanie zamówienia:</h5>
                   <p>
                     Klient składa zamówienie za pośrednictwem platformy
-                    blackbellartstudio.pl.
+                    blackbellstudio.pl.
                   </p>
                 </li>
 
@@ -336,10 +336,10 @@ export default function Page() {
             </div>
             <div>
               <div>
-                <h4>6. Płatności i Dostawa Dzieł na blackbellartstudio.pl</h4>
+                <h4>6. Płatności i Dostawa Dzieł na blackbellstudio.pl</h4>
 
                 <h5>
-                  6.1. Ceny Dzieł prezentowanych na blackbellartstudio.pl są
+                  6.1. Ceny Dzieł prezentowanych na blackbellstudio.pl są
                   wyrażone w złotych polskich, zawierają podatek VAT i nie
                   obejmują kosztów dostawy (dostarczenia, odebrania Dzieła oraz
                   jego ubezpieczenia podczas transportu). Dla Klientów spoza
@@ -351,7 +351,7 @@ export default function Page() {
                 <h5>
                   6.2. Dostawa zamówionych Dzieł odbywa się na koszt Klienta.
                   Szczegółowe informacje na temat kosztów przesyłki są dostępne
-                  na stronie blackbellartstudio.pl.
+                  na stronie blackbellstudio.pl.
                 </h5>
 
                 <h5>
@@ -382,7 +382,7 @@ export default function Page() {
                 </ul>
 
                 <h5>
-                  6.6. blackbellartstudio.pl dostarcza zamówione Dzieło za
+                  6.6. blackbellstudio.pl dostarcza zamówione Dzieło za
                   pośrednictwem Poczty Polskiej, przesyłkami kurierskimi lub
                   umożliwia odbiór osobisty po wcześniejszym uzgodnieniu z
                   Klientem.
@@ -396,7 +396,7 @@ export default function Page() {
               <div>
                 <div>
                   <h4>
-                    7. Odstąpienie od Umowy Sprzedaży na blackbellartstudio.pl
+                    7. Odstąpienie od Umowy Sprzedaży na blackbellstudio.pl
                   </h4>
 
                   <h5>
@@ -452,10 +452,10 @@ export default function Page() {
                 </div>
                 <div>
                   <div>
-                    <h3>8. Reklamacje na blackbellartstudio.pl</h3>
+                    <h3>8. Reklamacje na blackbellstudio.pl</h3>
 
                     <h5>
-                      8.1. Sprzedawca na blackbellartstudio.pl zobowiązuje się
+                      8.1. Sprzedawca na blackbellstudio.pl zobowiązuje się
                       dostarczyć zakupiony towar w stanie wolnym od wad
                       fizycznych i prawnych.
                     </h5>
@@ -508,7 +508,7 @@ export default function Page() {
                     <div>
                       <div>
                         <h4>
-                          Schemat Składania Reklamacji na blackbellartstudio.pl
+                          Schemat Składania Reklamacji na blackbellstudio.pl
                         </h4>
                         <ul>
                           <li>Wyślij wymagane dane:</li>
@@ -548,7 +548,7 @@ export default function Page() {
                           <ul>
                             <li>
                               Reklamacje można składać mailowo pod adresem
-                              e-mail: reklamacje@blackbellartstudio.pl.
+                              e-mail: reklamacje@blackbellstudio.pl.
                             </li>
                           </ul>
                           <h4> Rozpatrzenie Reklamacji:</h4>
@@ -579,7 +579,7 @@ export default function Page() {
 
                     <div>
                       <h3>
-                        9. Ochrona Danych Osobowych na blackbellartstudio.pl
+                        9. Ochrona Danych Osobowych na blackbellstudio.pl
                       </h3>
                       <h4>Cele Przetwarzania Danych:</h4>
                       <ul>
@@ -593,7 +593,7 @@ export default function Page() {
                       <ul>
                         <li>
                           Administratorem danych osobowych jest Sklep
-                          blackbellartstudio.pl.
+                          blackbellstudio.pl.
                         </li>
                       </ul>
                       <h4>Rodzaje Danych Przetwarzanych:</h4>
@@ -662,7 +662,7 @@ export default function Page() {
                       <h4>Zgoda na Przetwarzanie Danych:</h4>
                       <ul>
                         <li>
-                          Korzystając z blackbellartstudio.pl, Klient wyraża
+                          Korzystając z blackbellstudio.pl, Klient wyraża
                           zgodę na przetwarzanie swoich danych zgodnie z
                           polityką ochrony prywatności.
                         </li>
@@ -676,22 +676,22 @@ export default function Page() {
                         </li>
                       </ul>
                       <p>
-                        Ochrona danych osobowych na blackbellartstudio.pl jest
+                        Ochrona danych osobowych na blackbellstudio.pl jest
                         priorytetem, a wszelkie działania są podejmowane zgodnie
                         z obowiązującymi przepisami prawa.
                       </p>
                       <div>
-                        <h3>10.Klauzula Poufności - blackbellartstudio.pl</h3>
+                        <h3>10.Klauzula Poufności - blackbellstudio.pl</h3>
                         <div>
                           <h4>10.1 Definicje:</h4>
                           <p>
                             Terminy użyte w niniejszej klauzuli mają znaczenie
                             zgodne z definicjami zawartymi w polityce
-                            prywatności Sklepu blackbellartstudio.pl.
+                            prywatności Sklepu blackbellstudio.pl.
                           </p>
                           <h4>10.2 Ochrona Informacji:</h4>
                           <p>
-                            Sklep blackbellartstudio.pl zobowiązuje się do
+                            Sklep blackbellstudio.pl zobowiązuje się do
                             ochrony poufności wszelkich informacji uzyskanych od
                             Klientów w trakcie korzystania ze strony.
                           </p>
@@ -703,7 +703,7 @@ export default function Page() {
                           </p>
                           <h4>10.4 Dane Przejściowe:</h4>
                           <p>
-                            Sklep blackbellartstudio.pl nie udostępnia, nie
+                            Sklep blackbellstudio.pl nie udostępnia, nie
                             sprzedaje ani nie wymienia danych osobowych Klientów
                             na cele marketingowe zewnętrznym podmiotom.
                           </p>
@@ -721,7 +721,7 @@ export default function Page() {
                           </p>
                           <h4>10.7 Przekazywanie Informacji:</h4>
                           <p>
-                            Sklep blackbellartstudio.pl przekazuje jedynie
+                            Sklep blackbellstudio.pl przekazuje jedynie
                             niezbędne informacje niezbędne do realizacji
                             zamówienia, takie jak dane adresowe, firmie
                             kurierskiej odpowiedzialnej za dostawę.
@@ -741,7 +741,7 @@ export default function Page() {
                           </p>
                           <h4>10.10 Akceptacja Klauzuli:</h4>
                           <p>
-                            Korzystając z usług Sklepu blackbellartstudio.pl,
+                            Korzystając z usług Sklepu blackbellstudio.pl,
                             Klient akceptuje postanowienia niniejszej klauzuli
                             poufności.
                           </p>
@@ -749,12 +749,12 @@ export default function Page() {
                         <div>
                           <div>
                             <h3>
-                              11. Postanowienia Końcowe - blackbellartstudio.pl
+                              11. Postanowienia Końcowe - blackbellstudio.pl
                             </h3>
                             <div>
                               <h4>11.1 Zmiany w Regulaminie:</h4>
                               <p>
-                                Sklep blackbellartstudio.pl zastrzega sobie
+                                Sklep blackbellstudio.pl zastrzega sobie
                                 prawo do wprowadzania zmian w niniejszym
                                 Regulaminie. Wprowadzone modyfikacje mają
                                 zastosowanie do zamówień złożonych po datę ich
@@ -765,13 +765,13 @@ export default function Page() {
                                 Wszystkie prawa własności intelektualnej do
                                 treści, grafiki, zdjęć oraz innych elementów
                                 znajdujących się na stronie
-                                blackbellartstudio.pl są własnością Sklepu i są
+                                blackbellstudio.pl są własnością Sklepu i są
                                 chronione prawem autorskim.
                               </p>
                               <h4>11.3 Postanowienia Prawne:</h4>
                               <p>
                                 Umowy zawierane za pośrednictwem Sklepu
-                                blackbellartstudio.pl podlegają polskiemu prawu,
+                                blackbellstudio.pl podlegają polskiemu prawu,
                                 a wszelkie spory wynikłe z umów sprzedaży
                                 podlegają sądom właściwym zgodnie z polskim
                                 prawem.
@@ -781,7 +781,7 @@ export default function Page() {
                                 Wszelkie kwestie związane z Regulaminem,
                                 zamówieniami, reklamacjami czy ochroną danych
                                 można zgłaszać pod adres e-mail:
-                                info@blackbellartstudio.pl.
+                                info@blackbellstudio.pl.
                               </p>
                               <h4>11.5 Skuteczność Postanowień:</h4>
                               <p>
@@ -793,7 +793,7 @@ export default function Page() {
                               <h4>11.6 Tryb Rozstrzygania Sporów:</h4>
                               <p>
                                 Wszelkie spory wynikłe z umów zawartych za
-                                pośrednictwem Sklepu blackbellartstudio.pl będą
+                                pośrednictwem Sklepu blackbellstudio.pl będą
                                 rozstrzygane drogą mediacji. W przypadku
                                 niemożności uzyskania porozumienia, spory będą
                                 rozpatrywane przez sąd właściwy zgodnie z
@@ -802,7 +802,7 @@ export default function Page() {
                               <h4>11.7 Akceptacja Regulaminu:</h4>
                               <p>
                                 Korzystając z usług Sklepu
-                                blackbellartstudio.pl, Klient akceptuje
+                                blackbellstudio.pl, Klient akceptuje
                                 postanowienia niniejszego Regulaminu oraz
                                 zobowiązuje się do przestrzegania jego treści.
                               </p>
@@ -810,7 +810,7 @@ export default function Page() {
                               <p>
                                 Niniejszy Regulamin wchodzi w życie z dniem
                                 10.11.2023r. wraz z opublikowaniem na stronie
-                                internetowej Sklepu blackbellartstudio.pl.
+                                internetowej Sklepu blackbellstudio.pl.
                               </p>
                               <h4>11.9 Postanowienia Ostateczne:</h4>
                               <p>

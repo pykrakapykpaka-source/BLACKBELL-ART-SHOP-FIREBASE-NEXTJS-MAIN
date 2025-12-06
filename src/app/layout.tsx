@@ -65,7 +65,7 @@ export const viewport: Viewport = {
   colorScheme: "light",
 };
 export const metadata: Metadata = {
-  publisher: "blackbellartstudio.pl",
+  publisher: "blackbellstudio.pl",
   manifest: "/manifest.json",
   verification: {
     google: "google85185d3abec28326.html",
@@ -87,10 +87,10 @@ export const metadata: Metadata = {
     "Kup oryginalne obrazy na płótnie: obrazy olejne, portrety i abstrakcje. Kup unikalny obraz dla siebie lub na prezent już dziś.",
   openGraph: {
     type: "website",
-    url: "https://blackbellartstudio.pl",
+    url: "https://blackbellstudio.pl",
     title: "Sklep z Obrazami | Obrazy na zamówienie | Obrazy na płótnie",
     description:
       "Kup oryginalne obrazy na płótnie: obrazy olejne, portrety i abstrakcje. Kup unikalny obraz dla siebie lub na prezent już dziś.",
-    siteName: "blackbellartstudio.pl",
+    siteName: "blackbellstudio.pl",
   },
 };

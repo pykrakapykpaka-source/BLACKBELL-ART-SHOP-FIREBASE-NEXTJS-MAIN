@@ -156,11 +156,11 @@ export default function ShopFooter({
       <div className="border-t border-gray-800 py-6 px-5 lg:px-[8vw] xl:px-[12vw]">
         <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
           <div className="text-xs text-gray-400">
-            © {new Date().getFullYear()} blackbellartstudio.pl. Wszystkie prawa
+            © {new Date().getFullYear()} blackbellstudio.pl. Wszystkie prawa
             zastrzeżone.
           </div>
           <div className="text-xs text-gray-400">
-            Projekt i realizacja: blackbellartstudio.pl
+            Projekt i realizacja: blackbellstudio.pl
           </div>
         </div>
       </div>

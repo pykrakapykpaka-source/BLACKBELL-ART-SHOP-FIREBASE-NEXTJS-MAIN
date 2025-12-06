@@ -4,7 +4,7 @@ import { getBlogCount } from '@/lib/getBlogCount';
 import { getProductUrl } from '@/utils/getProductUrl';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blackbellartstudio.pl';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://blackbellstudio.pl';
   
   // Get all products
   const products = await getProducts();

@@ -22,7 +22,7 @@ export default function PrivacyPolicy({ setOpen }: { setOpen: Function }) {
       {lang === "en" && (
         <div className="prose mx-auto">
           {" "}
-          <h1 className="!text-xl">Privacy Policy blackbellartstudio.pl</h1>
+          <h1 className="!text-xl">Privacy Policy blackbellstudio.pl</h1>
           <p>
             Thank you for visiting our website &quot;Blackbell&quot;. We assure
             you that your privacy is our top priority. Below you will find our
@@ -96,7 +96,7 @@ export default function PrivacyPolicy({ setOpen }: { setOpen: Function }) {
         <div className="prose mx-auto">
           {" "}
           <h1 className="!text-xl">
-            Polityka Prywatności blackbellartstudio.pl
+            Polityka Prywatności blackbellstudio.pl
           </h1>
           <p>
             Dziękujemy za odwiedzenie naszej strony internetowej

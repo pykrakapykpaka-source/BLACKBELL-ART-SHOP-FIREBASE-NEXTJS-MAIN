@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     "Obrazy na zamówienie, unikalne dzieła sztuki – ręcznie malowane obrazy na płótnie. Sprawdź naszą ofertę!",
   openGraph: {
     type: "website",
-    url: "https://blackbellartstudio.pl",
+    url: "https://blackbellstudio.pl",
 
     title:
       "Unikalne obrazy na płótnie na zamówienie | Sklep z obrazami | Sztuka",
