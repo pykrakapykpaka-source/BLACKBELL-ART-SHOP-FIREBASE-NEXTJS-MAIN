@@ -6,13 +6,15 @@ import { useState, useEffect } from "react";
 import { FaLink, FaLongArrowAltLeft, FaTrash } from "react-icons/fa";
 import PostImages from "./PostImages";
 import { Post } from "@/types";
-import EditSection from "./EditSection";
+import dynamic from "next/dynamic";
 import { EditorState } from "draft-js";
-import SectionContentEditor from "../new/PostSections/SectionContentEditor";
 import SectionsList from "../new/PostSections/SectionsList";
 import { db } from "@/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+
+const EditSection = dynamic(() => import("./EditSection"), { ssr: false });
+const SectionContentEditor = dynamic(() => import("../new/PostSections/SectionContentEditor"), { ssr: false });
 
 export default function EditPost({
   selectedPost,

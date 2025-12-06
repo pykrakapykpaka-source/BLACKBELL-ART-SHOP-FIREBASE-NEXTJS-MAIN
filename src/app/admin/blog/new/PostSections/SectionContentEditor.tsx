@@ -1,8 +1,10 @@
-"use state";
+"use client";
 import React, { useState } from "react";
-import { Editor } from "react-draft-wysiwyg";
+import dynamic from "next/dynamic";
 import { EditorState, convertToRaw } from "draft-js";
 import draftToHtml from "draftjs-to-html";
+
+const Editor = dynamic(() => import("react-draft-wysiwyg").then((mod) => mod.Editor), { ssr: false });
 export default function SectionContentEditor({
   addSection,
 }: {

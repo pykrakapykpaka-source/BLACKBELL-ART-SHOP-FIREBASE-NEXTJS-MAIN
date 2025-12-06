@@ -2,20 +2,21 @@
 import { renderMarkdown } from "@/lib/parseMarkdown";
 import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaLink, FaLongArrowAltLeft, FaSave, FaEye } from "react-icons/fa";
-import * as Scroll from "react-scroll";
+import dynamic from "next/dynamic";
 import PostImages from "./PostImages";
-import SectionContentEditor from "./PostSections/SectionContentEditor";
 import TagsHandler from "./TagsHandler";
 import { EditorState } from "draft-js";
-import EditSection from "../edit/EditSection";
 import SectionsList from "./PostSections/SectionsList";
 import FaqHandler from "./FaqHandler";
 import { addDocument } from "@/firebase";
 import { toast } from "react-toastify";
 import Image from "next/image";
 var randomId = require("random-id");
+
+const SectionContentEditor = dynamic(() => import("./PostSections/SectionContentEditor"), { ssr: false });
+const EditSection = dynamic(() => import("../edit/EditSection"), { ssr: false });
 
 export default function NewPostPage() {
   const [input, setInput] = useState({
@@ -42,6 +43,15 @@ export default function NewPostPage() {
   const [tagInput, setTagInput] = useState("");
   const [loading, setLoading] = useState(false);
   const [previewMode, setPreviewMode] = useState(false);
+  const [ScrollTo, setScrollTo] = useState<any>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("react-scroll").then((Scroll) => {
+        setScrollTo(() => Scroll.Link);
+      });
+    }
+  }, []);
 
   const addSection = (title: string, content: EditorState) => {
     setInput((prevInput: any) => ({
@@ -59,8 +69,6 @@ export default function NewPostPage() {
       setTagInput("");
     }
   };
-
-  let ScrollTo = Scroll.Link;
 
   const removeSection = (idx: number) => {
     const newSections = [...input.sections];
