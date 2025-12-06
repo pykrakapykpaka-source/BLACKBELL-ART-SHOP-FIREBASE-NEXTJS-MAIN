@@ -1,7 +1,10 @@
 "use client";
 import moment from "moment";
 import "moment/locale/pl";
-import { FaEye, FaCalendarDay, FaCalendarAlt } from "react-icons/fa";
+import { FaEye, FaCalendarDay, FaCalendarAlt, FaTrash } from "react-icons/fa";
+import { useState } from "react";
+import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface VisitStatsProps {
   pageViews: any[];
@@ -35,14 +38,59 @@ const polishMonths: { [key: number]: string } = {
 };
 
 export default function VisitsStats({ pageViews }: VisitStatsProps) {
+  const router = useRouter();
+  const [isResetting, setIsResetting] = useState(false);
+
+  const handleResetVisits = async () => {
+    if (typeof window === "undefined") return;
+    
+    const confirmed = window.confirm(
+      "Czy na pewno chcesz wyzerować licznik odwiedzin? Ta operacja jest nieodwracalna."
+    );
+    
+    if (!confirmed) return;
+
+    setIsResetting(true);
+    try {
+      const response = await fetch("/api/admin/reset-visits", {
+        method: "POST",
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success(`Wyzerowano ${data.deleted} odwiedzin`, {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        router.refresh();
+      } else {
+        toast.error("Błąd podczas zerowania licznika", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+      }
+    } catch (error) {
+      console.error("Error resetting visits:", error);
+      toast.error("Błąd podczas zerowania licznika", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    } finally {
+      setIsResetting(false);
+    }
+  };
+
   if (!pageViews || pageViews.length === 0) {
     return (
       <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl p-6 mb-8 border border-gray-700">
-        <div className="flex items-center gap-3 mb-4">
-          <FaEye className="text-blue-400 text-3xl" />
-          <h2 className="text-3xl font-bold text-white font-cardo">
-            Statystyki odwiedzin
-          </h2>
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex items-center gap-3">
+            <FaEye className="text-blue-400 text-3xl" />
+            <h2 className="text-3xl font-bold text-white font-cardo">
+              Statystyki odwiedzin
+            </h2>
+          </div>
         </div>
         <p className="text-gray-400 font-ubuntu">
           Brak danych o odwiedzinach. Statystyki pojawią się po pierwszej wizycie.
@@ -116,11 +164,21 @@ export default function VisitsStats({ pageViews }: VisitStatsProps) {
   return (
     <div className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl shadow-2xl p-6 mb-8 border border-gray-700">
       {/* Header */}
-      <div className="flex items-center gap-3 mb-6">
-        <FaEye className="text-blue-400 text-3xl" />
-        <h2 className="text-3xl font-bold text-white font-cardo">
-          Statystyki odwiedzin
-        </h2>
+      <div className="flex items-center justify-between mb-6">
+        <div className="flex items-center gap-3">
+          <FaEye className="text-blue-400 text-3xl" />
+          <h2 className="text-3xl font-bold text-white font-cardo">
+            Statystyki odwiedzin
+          </h2>
+        </div>
+        <button
+          onClick={handleResetVisits}
+          disabled={isResetting}
+          className="flex items-center gap-2 bg-red-600 hover:bg-red-700 disabled:bg-gray-600 disabled:cursor-not-allowed text-white px-4 py-2 rounded-lg transition-colors font-ubuntu"
+        >
+          <FaTrash />
+          {isResetting ? "Resetowanie..." : "Wyzeruj licznik odwiedzin"}
+        </button>
       </div>
 
       {/* Summary Cards */}

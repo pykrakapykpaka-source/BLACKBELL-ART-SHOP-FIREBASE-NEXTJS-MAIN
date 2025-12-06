@@ -50,7 +50,7 @@ export default function Hero() {
 
         {/* Enhanced image carousel section */}
         <div className="w-full mt-16 sm:mt-20 lg:mt-24 overflow-hidden relative">
-          <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/50 to-white z-10 pointer-events-none"></div>
+          <div className="absolute inset-0 bg-white/50 z-10 pointer-events-none"></div>
           <div className="flex w-max items-start ml-[100%] relative z-0">
             <Image
               src={bg}

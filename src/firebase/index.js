@@ -34,6 +34,12 @@ async function getDocuments(collectionName) {
   const res = response.docs.map((doc) => doc.data());
   return res;
 }
+async function getDocumentsWithIds(collectionName) {
+  const ref = collection(db, collectionName);
+  const response = await getDocs(ref);
+  const res = response.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return res;
+}
 async function addDocument(collectionName, uniqueId, data) {
   await setDoc(doc(db, collectionName, uniqueId), data);
 }
@@ -63,6 +69,7 @@ export {
   auth,
   addDocument,
   getDocuments,
+  getDocumentsWithIds,
   getDocument,
   removeDocument,
   updateDocument,
