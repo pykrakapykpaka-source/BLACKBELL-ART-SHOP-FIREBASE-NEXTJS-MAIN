@@ -98,7 +98,7 @@ export default function ProductDetailPage({
         </div>
         <Disclaimer />
         <MoreProducts products={products} product={product} />
-        <div className="sticky bottom-0 left-0 right-0 w-full h-14 bg-gradient-to-t from-gray-800 to-gray-700 text-gray-100 rounded-t-2xl grid grid-cols-3 z-[110] shadow-lg border-t border-gray-600/50">
+        <div className="sticky bottom-0 left-0 right-0 w-full h-14 bg-gradient-to-t from-gray-800 to-gray-700 text-gray-100 rounded-t-2xl grid grid-cols-3 z-[90] shadow-lg border-t border-gray-600/50">
           <Link
             href="/"
             className="flex flex-col items-center justify-center text-xs hover:bg-gray-600/50 transition-colors duration-200 rounded-tl-2xl active:bg-gray-600"
