@@ -12,7 +12,6 @@ import {
 } from "firebase/firestore/lite";
 import { getStorage } from "firebase/storage";
 import { getAuth } from "firebase/auth";
-import { getAnalytics, isSupported } from "firebase/analytics";
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
@@ -27,7 +26,7 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 const storage = getStorage(app);
 const auth = getAuth(app);
-const analytics = isSupported().then((yes) => (yes ? getAnalytics(app) : null));
+// Analytics initialization removed - initialize on client side when needed
 async function getDocuments(collectionName) {
   const ref = collection(db, collectionName);
   const response = await getDocs(ref);
