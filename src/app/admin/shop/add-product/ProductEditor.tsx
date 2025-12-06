@@ -510,7 +510,9 @@ export default function ProductEditor({
             <button
               disabled={isLoading}
               onClick={() => {
-                window.location.reload();
+                if (typeof window !== "undefined") {
+                  window.location.reload();
+                }
               }}
               className="px-6 bg-gray-500 hover:bg-gray-400 p-2 duration-200 text-white text-lg disabled:cursor-not-allowed disabled:bg-green-200"
             >

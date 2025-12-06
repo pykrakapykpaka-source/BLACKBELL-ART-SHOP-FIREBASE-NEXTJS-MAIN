@@ -23,7 +23,9 @@ export default function ClearCache({
         updateDocument(["sold"], [true], "products", product.id);
       }
     });
-    window.localStorage.clear();
+    if (typeof window !== "undefined") {
+      window.localStorage.clear();
+    }
   }, []);
   return (
     <div>

@@ -2,9 +2,8 @@
 import { renderMarkdown } from "@/lib/parseMarkdown";
 import { polishToEnglish } from "../../../../../utils/polishToEnglish";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaLink, FaLongArrowAltLeft, FaTrash } from "react-icons/fa";
-import * as Scroll from "react-scroll";
 import PostImages from "./PostImages";
 import { Post } from "@/types";
 import EditSection from "./EditSection";
@@ -14,6 +13,7 @@ import SectionsList from "../new/PostSections/SectionsList";
 import { db } from "@/firebase";
 import { doc, updateDoc } from "firebase/firestore";
 import { toast } from "react-toastify";
+
 export default function EditPost({
   selectedPost,
   setSelectedPost,
@@ -30,6 +30,16 @@ export default function EditPost({
   });
   const [tagInput, setTagInput] = useState("");
   const [messageVisible, setMessageVisible] = useState(false);
+  const [ScrollTo, setScrollTo] = useState<any>(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      import("react-scroll").then((Scroll) => {
+        setScrollTo(() => Scroll.Link);
+      });
+    }
+  }, []);
+
   const addSection = (value: string) => {
     setSelectedPost((prevInput: any) => ({
       ...prevInput,
@@ -45,8 +55,6 @@ export default function EditPost({
       tags: [...prevInput.tags, { name: `#${tagInput}` }],
     }));
   };
-
-  let ScrollTo = Scroll.Link;
   {
     /* {"![alt text](image-url) [link text](link-url)"} */
   }
@@ -322,18 +330,25 @@ export default function EditPost({
                   {selectedPost.sections.length > 0 &&
                     selectedPost.sections.map((section: any, idx: number) => (
                       <h4 key={idx} className="relative h-12">
-                        <ScrollTo
-                          className=" text-blue-400 flex flex-row items-center cursor-pointer hover:bg-gray-100 duration-150 absolute left-0 top-0 z-20 h-full w-full"
-                          activeClass="active"
-                          to={`${polishToEnglish(section.title)}`}
-                          spy={true}
-                          smooth={true}
-                          offset={50}
-                          duration={500}
-                        >
-                          <FaLink className="text-gray-500 mr-2 min-w-[25px]" />{" "}
-                          {section.title}
-                        </ScrollTo>
+                        {ScrollTo ? (
+                          <ScrollTo
+                            className=" text-blue-400 flex flex-row items-center cursor-pointer hover:bg-gray-100 duration-150 absolute left-0 top-0 z-20 h-full w-full"
+                            activeClass="active"
+                            to={`${polishToEnglish(section.title)}`}
+                            spy={true}
+                            smooth={true}
+                            offset={50}
+                            duration={500}
+                          >
+                            <FaLink className="text-gray-500 mr-2 min-w-[25px]" />{" "}
+                            {section.title}
+                          </ScrollTo>
+                        ) : (
+                          <div className="text-blue-400 flex flex-row items-center cursor-pointer hover:bg-gray-100 duration-150 absolute left-0 top-0 z-20 h-full w-full">
+                            <FaLink className="text-gray-500 mr-2 min-w-[25px]" />{" "}
+                            {section.title}
+                          </div>
+                        )}
                       </h4>
                     ))}
                 </div>

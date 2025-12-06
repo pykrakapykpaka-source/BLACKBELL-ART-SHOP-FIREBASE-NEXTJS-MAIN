@@ -28,7 +28,7 @@ export default function BlogPage() {
   }, []);
 
   const handleDeletePost = async (postId: string) => {
-    if (window.confirm("Czy na pewno chcesz usunąć ten post?")) {
+    if (typeof window !== "undefined" && window.confirm("Czy na pewno chcesz usunąć ten post?")) {
       try {
         await removeDocument("blog", postId);
         setPosts(posts.filter((post) => post.postId !== postId));
