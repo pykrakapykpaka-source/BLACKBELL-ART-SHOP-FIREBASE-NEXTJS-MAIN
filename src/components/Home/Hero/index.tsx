@@ -24,7 +24,7 @@ export default function Hero() {
 
           {/* Main heading with refined typography */}
           <h1 className="flex flex-col justify-center items-center font-cardo text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 w-full leading-[1.1] tracking-tight">
-            <span className="block mb-2 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 bg-clip-text text-transparent">
+            <span className="block mb-2 text-gray-900">
               Symfonia
             </span>
             <span className="block text-gray-900">kolorów</span>
