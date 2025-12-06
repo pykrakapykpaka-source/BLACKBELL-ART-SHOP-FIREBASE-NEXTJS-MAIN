@@ -15,7 +15,7 @@ This is a **Next.js** application.
 ## Prerequisites
 
 - **Node.js** (version 14.x or newer)
-- **npm** or **yarn**
+- **pnpm** (install globally with `npm install -g pnpm`)
 
 ## How to run
 
@@ -29,35 +29,31 @@ This is a **Next.js** application.
 2. Install dependencies:
 
    ```bash
-   npm install
-   # or
-   yarn install
+   pnpm install
    ```
 
 3. Run the development server:
 
    ```bash
-   npm run dev
-   # or
-   yarn dev
+   pnpm dev
    ```
 
 4. Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
 
 ## Scripts
 
-- `npm run dev` - Starts the development server.
-- `npm run build` - Builds the production version of the app.
-- `npm start` - Starts the app in production mode.
-- `npm run lint` - Lints the codebase for any errors.
+- `pnpm dev` - Starts the development server.
+- `pnpm build` - Builds the production version of the app.
+- `pnpm start` - Starts the app in production mode.
+- `pnpm lint` - Lints the codebase for any errors.
 
 ## Deployment
 
 To deploy, run the following command:
 
 ```bash
-npm run build
-npm start
+pnpm build
+pnpm start
 ```
 
 Alternatively, you can deploy the app on platforms like **Vercel** or **Netlify**.
