@@ -22,17 +22,28 @@ export default async function SharedProductPage({
   params, 
   category 
 }: Props) {
-  const { slug } = await params;
-  const products = await getProducts();
-  const product = products.find(
-    (p: any) => polishToEnglish(p.title) === slug && p.category === category
-  );
+  try {
+    const { slug } = await params;
+    const products = await getProducts();
+    
+    if (!products || products.length === 0) {
+      console.error("No products found");
+      notFound();
+    }
+    
+    const product = products.find(
+      (p: any) => polishToEnglish(p.title) === slug && p.category === category
+    );
 
-  if (!product) {
+    if (!product) {
+      notFound();
+    }
+
+    return <ProductDetailPage product={product} products={products} />;
+  } catch (error) {
+    console.error("Error in SharedProductPage:", error);
     notFound();
   }
-
-  return <ProductDetailPage product={product} products={products} />;
 }
 
 /**
@@ -44,26 +55,40 @@ export async function generateProductMetadata(
   category: Category,
   categoryTitle: string
 ): Promise<Metadata> {
-  const { slug } = await params;
-  const products = await getProducts();
-  const product = products.find(
-    (p: any) => polishToEnglish(p.title) === slug && p.category === category
-  );
+  try {
+    const { slug } = await params;
+    const products = await getProducts();
+    
+    if (!products || products.length === 0) {
+      return {
+        title: "Produkt nie znaleziony",
+      };
+    }
+    
+    const product = products.find(
+      (p: any) => polishToEnglish(p.title) === slug && p.category === category
+    );
 
-  if (!product) {
+    if (!product) {
+      return {
+        title: "Produkt nie znaleziony",
+      };
+    }
+
+    return {
+      title: `${product.title} - ${categoryTitle}`,
+      description: product.description?.replace(/<[^>]*>/g, "").substring(0, 160) || "",
+      openGraph: {
+        title: product.title,
+        description: product.description?.replace(/<[^>]*>/g, "").substring(0, 160) || "",
+        images: product.mainImage ? [product.mainImage] : product.images?.[0]?.src ? [product.images[0].src] : [],
+      },
+    };
+  } catch (error) {
+    console.error("Error generating product metadata:", error);
     return {
       title: "Produkt nie znaleziony",
     };
   }
-
-  return {
-    title: `${product.title} - ${categoryTitle}`,
-    description: product.description?.replace(/<[^>]*>/g, "").substring(0, 160) || "",
-    openGraph: {
-      title: product.title,
-      description: product.description?.replace(/<[^>]*>/g, "").substring(0, 160) || "",
-      images: product.mainImage ? [product.mainImage] : product.images?.[0]?.src ? [product.images[0].src] : [],
-    },
-  };
 }
 

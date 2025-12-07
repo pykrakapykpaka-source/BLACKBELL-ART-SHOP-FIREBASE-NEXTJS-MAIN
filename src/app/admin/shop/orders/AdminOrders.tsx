@@ -104,7 +104,7 @@ const OrderCard = ({
   return (
     <div
       key={order.id}
-      className={`bg-white rounded-xl shadow-lg border-2 transition-all duration-300 ${
+      className={`bg-white rounded-xl shadow-lg border-2 transition-all duration-300 relative ${
         order.finished
           ? "border-green-500/50 bg-green-50/30"
           : "border-gray-200 hover:border-gray-300"
@@ -293,35 +293,44 @@ const OrderCard = ({
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (
-        <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-50 rounded-xl">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 font-cardo">
-              Potwierdź usunięcie
-            </h3>
-            <p className="text-gray-600 mb-6 font-ubuntu">
-              Czy na pewno chcesz usunąć to zamówienie? Ta operacja jest
-              nieodwracalna.
-            </p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowDeleteConfirm(false)}
-                className="flex-1 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-ubuntu font-medium transition-all"
-              >
-                Anuluj
-              </button>
-              <button
-                onClick={() => {
-                  handleDelete();
-                  setShowDeleteConfirm(false);
-                }}
-                className="flex-1 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-ubuntu font-medium transition-all flex items-center justify-center gap-2"
-              >
-                <FaTrash className="w-4 h-4" />
-                Usuń
-              </button>
+        <>
+          <div 
+            className="absolute inset-0 bg-black/50 z-40 rounded-xl"
+            onClick={() => setShowDeleteConfirm(false)}
+          />
+          <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
+            <div 
+              className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-2xl pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4 font-cardo">
+                Potwierdź usunięcie
+              </h3>
+              <p className="text-gray-600 mb-6 font-ubuntu">
+                Czy na pewno chcesz usunąć to zamówienie? Ta operacja jest
+                nieodwracalna.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="flex-1 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-ubuntu font-medium transition-all"
+                >
+                  Anuluj
+                </button>
+                <button
+                  onClick={() => {
+                    handleDelete();
+                    setShowDeleteConfirm(false);
+                  }}
+                  className="flex-1 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-ubuntu font-medium transition-all flex items-center justify-center gap-2"
+                >
+                  <FaTrash className="w-4 h-4" />
+                  Usuń
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
@@ -560,11 +569,11 @@ const LeadCard = ({ lead, setLeads }: { lead: any; setLeads: Function }) => {
   return (
     <div
       key={lead.id}
-      className={`bg-white rounded-xl shadow-lg border-2 transition-all duration-300 ${
+      className={`bg-white rounded-xl shadow-lg border-2 transition-all duration-300 relative ${
         lead.finished
           ? "border-blue-500/50 bg-blue-50/30"
           : "border-gray-200 hover:border-gray-300"
-      } overflow-hidden relative`}
+      } overflow-hidden`}
     >
       {/* Status Badge */}
       {lead.finished && (
@@ -724,35 +733,44 @@ const LeadCard = ({ lead, setLeads }: { lead: any; setLeads: Function }) => {
 
       {/* Delete Confirmation Modal */}
       {showDeleteConfirm && (
-        <div className="absolute inset-0 bg-black/80 flex items-center justify-center z-50 rounded-xl">
-          <div className="bg-white rounded-lg p-6 max-w-sm mx-4">
-            <h3 className="text-xl font-bold text-gray-900 mb-4 font-cardo">
-              Potwierdź usunięcie
-            </h3>
-            <p className="text-gray-600 mb-6 font-ubuntu">
-              Czy na pewno chcesz usunąć tę wycenę? Ta operacja jest
-              nieodwracalna.
-            </p>
-            <div className="flex gap-3">
-              <button
-                onClick={() => setShowDeleteConfirm(false)}
-                className="flex-1 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-ubuntu font-medium transition-all"
-              >
-                Anuluj
-              </button>
-              <button
-                onClick={() => {
-                  handleDelete();
-                  setShowDeleteConfirm(false);
-                }}
-                className="flex-1 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-ubuntu font-medium transition-all flex items-center justify-center gap-2"
-              >
-                <FaTrash className="w-4 h-4" />
-                Usuń
-              </button>
+        <>
+          <div 
+            className="absolute inset-0 bg-black/50 z-40 rounded-xl"
+            onClick={() => setShowDeleteConfirm(false)}
+          />
+          <div className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none">
+            <div 
+              className="bg-white rounded-lg p-6 max-w-sm mx-4 shadow-2xl pointer-events-auto"
+              onClick={(e) => e.stopPropagation()}
+            >
+              <h3 className="text-xl font-bold text-gray-900 mb-4 font-cardo">
+                Potwierdź usunięcie
+              </h3>
+              <p className="text-gray-600 mb-6 font-ubuntu">
+                Czy na pewno chcesz usunąć tę wycenę? Ta operacja jest
+                nieodwracalna.
+              </p>
+              <div className="flex gap-3">
+                <button
+                  onClick={() => setShowDeleteConfirm(false)}
+                  className="flex-1 px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-lg font-ubuntu font-medium transition-all"
+                >
+                  Anuluj
+                </button>
+                <button
+                  onClick={() => {
+                    handleDelete();
+                    setShowDeleteConfirm(false);
+                  }}
+                  className="flex-1 px-4 py-2 bg-red-500 hover:bg-red-600 text-white rounded-lg font-ubuntu font-medium transition-all flex items-center justify-center gap-2"
+                >
+                  <FaTrash className="w-4 h-4" />
+                  Usuń
+                </button>
+              </div>
             </div>
           </div>
-        </div>
+        </>
       )}
     </div>
   );
