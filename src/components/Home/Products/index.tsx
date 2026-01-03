@@ -13,6 +13,19 @@ export default function Products({ products }: { products: any }) {
   // Ensure products is always an array
   const safeProducts = Array.isArray(products) ? products : [];
 
+  // Debug logging - check what we received
+  useEffect(() => {
+    console.log("[Products Component] Received products:", {
+      isArray: Array.isArray(products),
+      length: products?.length || 0,
+      safeProductsLength: safeProducts.length,
+      firstProduct: safeProducts[0] || null,
+    });
+    if (safeProducts.length === 0) {
+      console.warn("[Products Component] WARNING: No products to display!");
+    }
+  }, [products, safeProducts]);
+
   // Get unique tags from all products (normalized to lowercase)
   const uniqueTags = useMemo(
     () =>
@@ -345,7 +358,16 @@ export default function Products({ products }: { products: any }) {
         ) : (
           <div className="col-span-full p-8 bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl border border-gray-200 break-inside-avoid mb-4 text-center">
             <p className="text-gray-600 font-ubuntu text-lg">Brak wyników...</p>
-            <p className="text-gray-500 font-ubuntu text-sm mt-2">Spróbuj zmienić filtry</p>
+            <p className="text-gray-500 font-ubuntu text-sm mt-2">
+              {safeProducts.length === 0 
+                ? "Nie znaleziono produktów. Sprawdź połączenie z bazą danych."
+                : "Spróbuj zmienić filtry"}
+            </p>
+            {safeProducts.length === 0 && (
+              <p className="text-gray-400 font-ubuntu text-xs mt-2">
+                Sprawdź konsolę przeglądarki dla szczegółów.
+              </p>
+            )}
           </div>
         )}
       </div>
