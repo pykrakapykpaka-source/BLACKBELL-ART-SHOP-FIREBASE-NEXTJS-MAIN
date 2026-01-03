@@ -18,6 +18,7 @@ import {
 } from "react-icons/fa";
 import { useState } from "react";
 import { toast } from "react-toastify";
+import { useRouter } from "next/navigation";
 
 interface Order {
   id: string;
@@ -47,6 +48,7 @@ const OrderCard = ({
 }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const router = useRouter();
   const {
     firstName,
     lastName,
@@ -85,8 +87,16 @@ const OrderCard = ({
             autoClose: 3000,
           }
         );
+        // Refresh server data to ensure consistency
+        router.refresh();
       }
-    );
+    ).catch((error) => {
+      console.error("Error updating order:", error);
+      toast.error("Błąd podczas aktualizacji zamówienia", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    });
   };
 
   const handleDelete = () => {
@@ -95,6 +105,14 @@ const OrderCard = ({
         prevOrders.filter((o) => o.id !== order.id)
       );
       toast.success("Usunięto zamówienie pomyślnie!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      // Refresh server data to ensure consistency
+      router.refresh();
+    }).catch((error) => {
+      console.error("Error deleting order:", error);
+      toast.error("Błąd podczas usuwania zamówienia", {
         position: "top-right",
         autoClose: 3000,
       });
@@ -514,6 +532,7 @@ export default function AdminOrders({
 const LeadCard = ({ lead, setLeads }: { lead: any; setLeads: Function }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
+  const router = useRouter();
 
   const copyToClipboard = (text: string, label: string) => {
     navigator.clipboard.writeText(text);
@@ -540,8 +559,16 @@ const LeadCard = ({ lead, setLeads }: { lead: any; setLeads: Function }) => {
             autoClose: 3000,
           }
         );
+        // Refresh server data to ensure consistency
+        router.refresh();
       }
-    );
+    ).catch((error) => {
+      console.error("Error updating lead:", error);
+      toast.error("Błąd podczas aktualizacji wyceny", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+    });
   };
 
   const handleDelete = () => {
@@ -550,6 +577,14 @@ const LeadCard = ({ lead, setLeads }: { lead: any; setLeads: Function }) => {
         prevLeads.filter((l) => l.id !== lead.id)
       );
       toast.success("Usunięto wycenę pomyślnie!", {
+        position: "top-right",
+        autoClose: 3000,
+      });
+      // Refresh server data to ensure consistency
+      router.refresh();
+    }).catch((error) => {
+      console.error("Error deleting lead:", error);
+      toast.error("Błąd podczas usuwania wyceny", {
         position: "top-right",
         autoClose: 3000,
       });

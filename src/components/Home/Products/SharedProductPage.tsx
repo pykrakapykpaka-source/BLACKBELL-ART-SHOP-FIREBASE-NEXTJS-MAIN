@@ -6,6 +6,31 @@ import { Metadata } from "next";
 
 type Category = "prints" | "stickers" | "paintings";
 
+/**
+ * Generate static params for all products in a given category.
+ * This function is called at build time to pre-generate all product pages.
+ */
+export async function generateStaticParamsForCategory(category: Category) {
+  try {
+    const products = await getProducts();
+    
+    if (!Array.isArray(products) || products.length === 0) {
+      return [];
+    }
+    
+    const categoryProducts = products.filter((p: any) => 
+      p && p.title && p.category === category
+    );
+    
+    return categoryProducts.map((product: any) => ({
+      slug: polishToEnglish(product.title),
+    }));
+  } catch (error) {
+    console.error(`[generateStaticParamsForCategory] Error for category ${category}:`, error);
+    return [];
+  }
+}
+
 type Props = {
   params: Promise<{ slug: string }>;
   category: Category;
@@ -26,22 +51,37 @@ export default async function SharedProductPage({
     const { slug } = await params;
     const products = await getProducts();
     
-    if (!products || products.length === 0) {
-      console.error("No products found");
+    // Ensure products is an array
+    if (!Array.isArray(products) || products.length === 0) {
+      console.error(`[SharedProductPage] No products found for category: ${category}, slug: ${slug}`);
       notFound();
     }
     
-    const product = products.find(
-      (p: any) => polishToEnglish(p.title) === slug && p.category === category
-    );
+    // Find product by matching slug and category
+    const product = products.find((p: any) => {
+      if (!p || !p.title || !p.category) {
+        return false;
+      }
+      const productSlug = polishToEnglish(p.title);
+      return productSlug === slug && p.category === category;
+    });
 
     if (!product) {
+      // Log for debugging - this helps identify slug matching issues
+      const availableSlugs = products
+        .filter((p: any) => p.category === category)
+        .map((p: any) => ({ title: p.title, slug: polishToEnglish(p.title) }));
+      console.error(
+        `[SharedProductPage] Product not found - Category: ${category}, Slug: ${slug}`,
+        `Available slugs:`,
+        availableSlugs
+      );
       notFound();
     }
 
     return <ProductDetailPage product={product} products={products} />;
   } catch (error) {
-    console.error("Error in SharedProductPage:", error);
+    console.error(`[SharedProductPage] Error for category ${category}:`, error);
     notFound();
   }
 }
@@ -59,15 +99,19 @@ export async function generateProductMetadata(
     const { slug } = await params;
     const products = await getProducts();
     
-    if (!products || products.length === 0) {
+    if (!Array.isArray(products) || products.length === 0) {
       return {
         title: "Produkt nie znaleziony",
       };
     }
     
-    const product = products.find(
-      (p: any) => polishToEnglish(p.title) === slug && p.category === category
-    );
+    const product = products.find((p: any) => {
+      if (!p || !p.title || !p.category) {
+        return false;
+      }
+      const productSlug = polishToEnglish(p.title);
+      return productSlug === slug && p.category === category;
+    });
 
     if (!product) {
       return {

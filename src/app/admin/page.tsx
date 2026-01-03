@@ -1,13 +1,60 @@
-import { getDocuments } from "@/firebase";
+import { getDocumentsWithIds, getDocuments } from "@/firebase";
 import Link from "next/link";
 import { FaBlog, FaShoppingCart, FaChartLine } from "react-icons/fa";
 import VisitsStats from "@/components/admin/VisitsStats";
 
+export const dynamic = "force-dynamic";
+export const revalidate = 0; // Always fetch fresh data for admin pages
+
 export default async function AdminPage() {
-  const products = await getDocuments("products");
-  const orders = await getDocuments("orders");
-  const posts = await getDocuments("blog");
-  const pageViews = await getDocuments("page-views");
+  let products: any = [];
+  let orders: any = [];
+  let posts: any = [];
+  let pageViews: any = [];
+  
+  try {
+    products = await getDocumentsWithIds("products");
+    if (!Array.isArray(products)) {
+      console.error("[Admin Page] Products is not an array:", products);
+      products = [];
+    }
+  } catch (error) {
+    console.error("[Admin Page] Error fetching products:", error);
+    products = [];
+  }
+  
+  try {
+    orders = await getDocumentsWithIds("orders");
+    if (!Array.isArray(orders)) {
+      console.error("[Admin Page] Orders is not an array:", orders);
+      orders = [];
+    }
+  } catch (error) {
+    console.error("[Admin Page] Error fetching orders:", error);
+    orders = [];
+  }
+  
+  try {
+    posts = await getDocumentsWithIds("blog");
+    if (!Array.isArray(posts)) {
+      console.error("[Admin Page] Posts is not an array:", posts);
+      posts = [];
+    }
+  } catch (error) {
+    console.error("[Admin Page] Error fetching posts:", error);
+    posts = [];
+  }
+  
+  try {
+    pageViews = await getDocuments("page-views");
+    if (!Array.isArray(pageViews)) {
+      console.error("[Admin Page] PageViews is not an array:", pageViews);
+      pageViews = [];
+    }
+  } catch (error) {
+    console.error("[Admin Page] Error fetching pageViews:", error);
+    pageViews = [];
+  }
 
   return (
     <div className="p-12">

@@ -59,17 +59,28 @@ async function getDocuments(collectionName, retries = 3) {
   return [];
 }
 async function getDocumentsWithIds(collectionName, retries = 3) {
+  const timeout = 10000; // 10 seconds timeout
+  
   for (let i = 0; i < retries; i++) {
     try {
       const ref = collection(db, collectionName);
-      const response = await getDocs(ref);
+      
+      // Add timeout wrapper
+      const fetchPromise = getDocs(ref);
+      const timeoutPromise = new Promise((_, reject) => 
+        setTimeout(() => reject(new Error('Firestore request timeout')), timeout)
+      );
+      
+      const response = await Promise.race([fetchPromise, timeoutPromise]);
       const res = response.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
       return res;
     } catch (error) {
-      console.error(`Firestore getDocumentsWithIds error (attempt ${i + 1}/${retries}):`, error);
+      const errorMessage = error?.message || error?.toString() || 'Unknown error';
+      console.error(`Firestore getDocumentsWithIds error (attempt ${i + 1}/${retries}) for ${collectionName}:`, errorMessage);
+      
       if (i === retries - 1) {
         // Last attempt failed, throw error
-        throw new Error(`Failed to fetch documents with IDs from ${collectionName} after ${retries} attempts: ${error.message || 'Unknown error'}`);
+        throw new Error(`Failed to fetch documents with IDs from ${collectionName} after ${retries} attempts: ${errorMessage}`);
       }
       // Wait before retrying (exponential backoff)
       await new Promise(resolve => setTimeout(resolve, Math.pow(2, i) * 1000));

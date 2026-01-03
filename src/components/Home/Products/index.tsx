@@ -10,21 +10,24 @@ export default function Products({ products }: { products: any }) {
   const [tagFilter, setTagFilter] = useState("all");
   const [showSuccess, setShowSuccess] = useState(false);
 
+  // Ensure products is always an array
+  const safeProducts = Array.isArray(products) ? products : [];
+
   // Get unique tags from all products (normalized to lowercase)
   const uniqueTags = useMemo(
     () =>
       Array.from(
         new Set(
-          products.flatMap((product: any) => 
-            (product.tags || []).map((tag: string) => tag.toLowerCase())
+          safeProducts.flatMap((product: any) => 
+            (product?.tags || []).map((tag: string) => tag.toLowerCase())
           )
         )
       ),
-    [products]
+    [safeProducts]
   );
 
   const filteredProducts = useMemo(() => {
-    let filteredProducts = [...products];
+    let filteredProducts = [...safeProducts];
     if (filter !== "all") {
       filteredProducts = filteredProducts.filter(
         (product: any) => product.category === filter
@@ -48,7 +51,7 @@ export default function Products({ products }: { products: any }) {
     }
 
     return filteredProducts;
-  }, [products, filter, tagFilter, priceFilter]);
+  }, [safeProducts, filter, tagFilter, priceFilter]);
 
   // Show success message when filters change
   useEffect(() => {
